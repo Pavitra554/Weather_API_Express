@@ -2,12 +2,14 @@ require('dotenv').config();
 const express = require('express');
 const getWeatherData = require('./utils/weatherData');
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 
 
 app.listen(PORT,()=>{
     console.log(`Server is live on http://localhost:${PORT}`)
 })
+app.use(cors())
 
 app.get('',(req,res)=>{
     if(!req.query.address){
